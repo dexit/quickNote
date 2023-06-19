@@ -1,4 +1,4 @@
-#QuickNote - PWA Text editor
+# QuickNote - PWA Text editor
 
 
 ## Table of Contents
