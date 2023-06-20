@@ -38,13 +38,15 @@ module.exports = () => {
           use: ["style-loader", "css-loader"]
         },
         {
-        test: /\.js$/i,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
+          test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                presets: ["@babel/preset-env"],
+                plugins: ["@babel/plugin-proposal-object-rest-spread", "@babel/transform-runtime"]
+              }
+            },
       },
       {
         test:  /\.(png|svg|ico|jpg|jpeg|gif)$/i,
