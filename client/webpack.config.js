@@ -20,14 +20,34 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      // Webpack html file and injects our bundles. 
       new HtmlWebpackPlugin({
-        
-        template: './index.html',
-        title: 'JATE'
-        
-      })
-      
-    ],
+       
+       template: './index.html', 
+
+       title: 'JATE Text Editor'
+     }),
+    
+ 
+     new InjectManifest({
+       swSrc: './src-sw.js',
+       swDest: 'src-sw.js',
+     }),
+ 
+     // Creates a manifest.json file.
+     new WebpackPwaManifest({
+       fingerprints: false,
+       inject: true,
+       name: 'Just another text editor',
+       short_name: 'JATE',
+       description: 'Just another text editor!',
+       background_color: '#225ca3',
+       theme_color: '#225ca3',
+       start_url: '/',
+       
+     }),
+     ],
+ 
 
     module: {
       rules: [
