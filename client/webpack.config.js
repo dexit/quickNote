@@ -60,10 +60,11 @@ module.exports = () => {
 
     module: {
       rules: [
+       
         {
           
           test: /\.css$/i,
-          
+           
           use: ["style-loader", "css-loader"]
         },
         {
@@ -78,6 +79,7 @@ module.exports = () => {
             },
       },
       {
+        
         test:  /\.(png|svg|ico|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         use: [
@@ -87,9 +89,9 @@ module.exports = () => {
               name: '[name].[ext]',
               outputPath: 'images/',
             },
-          }
-        ]
-      }
+          },
+        ],
+      },
 
       ],
     },
