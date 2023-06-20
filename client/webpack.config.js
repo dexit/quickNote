@@ -11,10 +11,12 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 module.exports = () => {
   return {
     mode: 'development',
+
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
+ 
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -34,7 +36,7 @@ module.exports = () => {
        swDest: 'src-sw.js',
      }),
  
-     // Creates a manifest.json file.
+     // manifest.json file.
      new WebpackPwaManifest({
        fingerprints: false,
        inject: true,
