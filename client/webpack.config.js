@@ -11,22 +11,20 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 module.exports = () => {
   return {
     mode: 'development',
-
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
- 
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      // Webpack html file and injects our bundles. 
+      // Webpack plugin that generates our html file and injects our bundles. 
       new HtmlWebpackPlugin({
        
        template: './index.html', 
-
+      
        title: 'JATE Text Editor'
      }),
     
@@ -36,7 +34,7 @@ module.exports = () => {
        swDest: 'src-sw.js',
      }),
  
-     // manifest.json file.
+     // Creates a manifest.json file.
      new WebpackPwaManifest({
        fingerprints: false,
        inject: true,
@@ -45,26 +43,25 @@ module.exports = () => {
        description: 'Just another text editor!',
        background_color: '#225ca3',
        theme_color: '#225ca3',
-       publicPath: '/',
        start_url: '/',
+       publicPath: '/',
        icons: [
-        {
-          src: path.resolve('src/images/logo.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
-          destination: path.join('assets', 'icons'),
-        },
-      ],
+         {
+           src: path.resolve('src/images/logo.png'),
+           sizes: [96, 128, 192, 256, 384, 512],
+           destination: path.join('assets', 'icons'),
+         },
+       ],
      }),
      ],
  
 
     module: {
       rules: [
-       
         {
           
           test: /\.css$/i,
-           
+          
           use: ["style-loader", "css-loader"]
         },
         {
@@ -79,19 +76,10 @@ module.exports = () => {
             },
       },
       {
-        
         test:  /\.(png|svg|ico|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-            },
-          },
-        ],
-      },
+        
+      }
 
       ],
     },
