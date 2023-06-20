@@ -20,7 +20,7 @@ const pageCache = new CacheFirst({
 });
 
 warmStrategyCache({
-  urls: ['/index.html', '/'],
+  urls: ['/index.html', '/', '/favicon.ico'],
   strategy: pageCache,
   //cacheName: 'warm-cache',
 });
@@ -33,11 +33,13 @@ registerRoute(
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new StaleWhileRevalidate({
     // Name of the cache storage.
-    cacheName: 'asset-cache',
+    cacheName: 'page-cache',
     plugins: [
       
       new CacheableResponsePlugin({
+         
         statuses: [0, 200],
+
       }),
     ],
   })
