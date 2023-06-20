@@ -49,12 +49,12 @@ For and suggestions or contributions you can reach me at my email address or you
 
 ## Link
 ### Github Repo:
-https://github.com/dexit/quickNote/Links to an external site.
+https://github.com/dexit/quickNote/
 
 ### Heroku Deployment:
 https://quicknotepwa-dacbb3276877.herokuapp.com/
 
-#
+
 ## Author
 
 
