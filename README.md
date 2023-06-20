@@ -1,4 +1,5 @@
 # QuickNote - PWA Text editor
+![image](https://github.com/dexit/quickNote/assets/6205151/43620923-6b7f-4921-a998-4f8788fcd86f)
 
 
 ## Table of Contents
